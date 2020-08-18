@@ -5,6 +5,7 @@ import ntplib
 import numpy as np
 import msvcrt as ms
 
+
 def fetch_offset(req_iter):
     offset_list = []
     c = ntplib.NTPClient()
@@ -14,6 +15,7 @@ def fetch_offset(req_iter):
         if(i+1 < req_iter):
             time.sleep(1)
     return round(np.mean(offset_list))
+
 
 flag = 1
 tweet_lag = 100
@@ -25,15 +27,15 @@ else:
 print('Tweak: {0} ms'.format(int(tweak)))
 patience = 20
 
-msec_list = [0,250,500,750]
-freq_list = [1000,500,500,500]
+msec_list = [0, 250, 500, 750]
+freq_list = [1000, 500, 500, 500]
 
 while(True):
     t_now = datetime.datetime.now()
     msec_now = (t_now.microsecond/1000 + tweak) % 1000
-    for msec,freq in zip(msec_list,freq_list):
+    for msec, freq in zip(msec_list, freq_list):
         if((msec_now >= msec) and (msec_now <= msec + patience)):
-            ws.Beep(freq,100)
+            ws.Beep(freq, 100)
             time.sleep(0.05)
             if(ms.kbhit()):
                 note = ms.getwch()
