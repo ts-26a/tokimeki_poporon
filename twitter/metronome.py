@@ -6,14 +6,14 @@ import numpy as np
 import msvcrt as ms
 
 def fetch_offset(req_iter):
-	offset_list = []
-	c = ntplib.NTPClient()
-	for i in range(req_iter):
-		res = c.request('ntp.nict.jp', version=3)
-		offset_list.append(res.offset*1000)
-		if(i+1 < req_iter):
-			time.sleep(1)
-	return round(np.mean(offset_list))
+    offset_list = []
+    c = ntplib.NTPClient()
+    for i in range(req_iter):
+        res = c.request('ntp.nict.jp', version=3)
+        offset_list.append(res.offset*1000)
+        if(i+1 < req_iter):
+            time.sleep(1)
+    return round(np.mean(offset_list))
 
 flag = 1
 tweet_lag = 100
