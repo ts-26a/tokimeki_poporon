@@ -16,14 +16,14 @@
 ### Key and tokens の確認
 
 https://developer.twitter.com/ にアクセスし、使用したいAppのKey and tokensを確認します。
-下記項目について、const.py中の対応する変数に代入してください。
+下記項目について、`env.json` 内に書き込んでください。
 
 |項目|対応する変数|
 |:---|:---|
-|Consumer Key|CK0|
-|Consumer Secret|CS0|
-|Access Token|AT0|
-|Access Secret|AS0|
+|Consumer Key|CK|
+|Consumer Secret|CS|
+|Access Token|AT|
+|Access Secret|AS|
 |TwitterID(@を除く)|userID|
 
 ### 必要なモジュールと動作確認済のバージョン
@@ -35,7 +35,7 @@ https://developer.twitter.com/ にアクセスし、使用したいAppのKey and
 |numpy|1.16.4|
 |pandas|0.23.0|
 |requests|2.18.4|
-|requests_oauthlib|1.0.0|
+|requests\_oauthlib|1.0.0|
 
 ## 使い方
 
@@ -60,7 +60,7 @@ Pythonでt.pyを実行してください。
 オプションが1個のみ指定される場合、100以下の数値はツイート数、それ以外はキーワードとして認識されます。
 
 ### cls
-画面に表示されている内容がクリアされます(Windowsでのみ有効)
+画面に表示されている内容がクリアされます
 
 ### delete [ツイート番号]
 指定したツイート番号のツイートを消去します
